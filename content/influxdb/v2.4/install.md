@@ -698,7 +698,7 @@ from your command line.
 The initial setup process for an InfluxDB instance creates the following:
 - An organization with the name you provide.
 - A primary bucket with the name you provide.
-- An admin [authorization]() with the following properties:
+- An admin [authorization](/influxdb/v2.4/security/tokens/) with the following properties:
   - The username and password that you provide.
   - An API token (_[operator token](/influxdb/v2.4/security/tokens/#operator-token)_).
   - Read-write permissions for all resources in the InfluxDB instance.
@@ -707,7 +707,7 @@ To run an interactive setup that prompts you for the required information,
 use the InfluxDB user interface (UI) or the `influx` command line interface (CLI).
 
 To automate the setup--for example, with a script that you write--
-then use the `influx` command line interface (CLI) or the InfluxDB `/api/v2` API.
+use the `influx` command line interface (CLI) or the InfluxDB `/api/v2` API.
 
 {{< tabs-wrapper >}}
 {{% tabs %}}
@@ -766,11 +766,13 @@ or get started [collecting and writing data](/influxdb/v2.4/write-data).
 {{% tab-content %}}
 ### Set up InfluxDB through the influx CLI
 
-The following steps describe how to use the `influx setup` CLI command in interactive or non-interactive (_headless_) mode to initialize
+Use the `influx setup` CLI command in interactive or non-interactive (_headless_) mode to initialize
 your InfluxDB instance.
 
+Do one of the following:
+
 - [Run `influx setup` without user interaction](#run-influx-setup-without-user-interaction)
-- [Run `influx setup` with user prompts]()
+- [Run `influx setup` with user prompts](#run-influx-setup-with-user-prompts)
 
 #### Run `influx setup` without user interaction
 
@@ -803,7 +805,7 @@ auto-generated API token:
 influx setup -u USERNAME -p PASSWORD -o ORGANIZATION_NAME -b BUCKET_NAME -f
 ```
 
-Once setup completes, InfluxDB is initialized with the [authorization](/influxdb/v2.4/security/tokens/),[user](/influxdb/v2.4/reference/glossary/#user), [organization](/influxdb/v2.4/reference/glossary/#organization), and [bucket](/influxdb/v2.4/reference/glossary/#bucket).
+Once setup completes, InfluxDB is initialized with the [authorization](/influxdb/v2.4/security/tokens/), [user](/influxdb/v2.4/reference/glossary/#user), [organization](/influxdb/v2.4/reference/glossary/#organization), and [bucket](/influxdb/v2.4/reference/glossary/#bucket).
 
 InfluxDB creates a `default` configuration profile for you that provides your
 InfluxDB URL, organization, and API token to `influx` CLI commands.
@@ -850,7 +852,7 @@ or get started [collecting and writing data](/influxdb/v2.4/write-data).
 
 ### Create All-Access tokens
 
-Because [operator tokens](/influxdb/v2.4/security/tokens/#operator-token)
+Because [Operator tokens](/influxdb/v2.4/security/tokens/#operator-token)
 have full read and write access to all organizations in the database,
 we recommend
 [creating an All-Access token](/influxdb/v2.4/security/tokens/create-token/)
